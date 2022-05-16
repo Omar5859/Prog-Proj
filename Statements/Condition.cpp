@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Condition::Condition(Point Center, string OP, string LeftHS, double RightHS)
+Condition::Condition(Point Center, string OP, string LeftHS, double RightHS, ApplicationManager* app):Statement(Center)
 {
 	LHS = LeftHS;
 	Operation = OP;
@@ -14,6 +14,16 @@ Condition::Condition(Point Center, string OP, string LeftHS, double RightHS)
 	CenterPoint = Center;
 
 	pConn = NULL;   //will be changed after connectors are done
+	pApp = app;
+
+	widthS = UI.Statement_Width;
+	heightS = UI.Statement_HI;
+
+	vStatX.first = CenterPoint.x - widthS / 2;
+	vStatX.second = CenterPoint.x + widthS / 2;
+
+	vStatY.first = CenterPoint.y - heightS / 2;
+	vStatY.second = CenterPoint.y + heightS / 2;
 
 	Inlet.x = CenterPoint.x;
 	Inlet.y = CenterPoint.y - UI.Statement_HI / 2;
