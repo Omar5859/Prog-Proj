@@ -3,6 +3,7 @@
 
 #include "Action.h"
 #include "..\Statements\SmplAssign.h"
+#include "..\ApplicationManager.h"
 
 //Add Simple Assignment Statement Action
 //This class is responsible for 
