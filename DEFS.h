@@ -21,7 +21,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	
 	/*-------------------------------------------------------------------------------------------------*/
 
-	EDIT_STAT,	//Edit a statement
+	EDIT_STAT,	//Edit a statement  BONUS
 
 	SELECT,		//Select a statement, a connector
 
@@ -30,19 +30,22 @@ enum ActionType //The actions supported (you can add more if needed)
 
 	RESIZE,		//Resize a figure(s)
 
-	CUT,
-	COPY,
-	PASTE,
-	DEL,		//Delete a figure(s)
+	CUT,   //BONUS
+	COPY,  //BONUS
+	PASTE, //BONUS
+	DEL,		//Delete a figure(s)  BONUS
+
 	MOVE,		//Move a figure(s)
 	SAVE,		//Save the whole graph to a file
 	LOAD,		//Load a graph from a file
 	EXIT,		//Exit the application
-	ADD_COMMENT,     //Allows user
+
+	ADD_COMMENT,     //Allows user   BONUS
+
 	STATUS,		//A click on the status bar
 	DSN_TOOL,	//A click on an empty place in the design tool bar
 	DSN_MODE,	//Switch to Design mode
-	SIM_MODE,	//Switch to simulatiom mode
+	SIM_MODE,	//Switch to simulation mode
 
 	VALIDATE,  //start validation of flowchart 
 	SIMULATE,  //start simulation
