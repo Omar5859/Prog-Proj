@@ -1,7 +1,5 @@
 #include "AddSmplAssign.h"
 
-
-
 #include "..\ApplicationManager.h"
 
 #include "..\GUI\input.h"
@@ -39,14 +37,8 @@ void AddSmplAssign::ReadActionParameters()
 void AddSmplAssign::Execute()
 {
 	ReadActionParameters();
-		
 	
-	//Calculating left corner of assignement statement block
-	/*Point Center;
-	Center.x = Position.x - UI.ASSGN_WDTH/2;
-	Center.y = Position.y ;*/
-	
-	SmplAssign *pAssign = new SmplAssign(Position, LeftText, RightValue);
+	SmplAssign *pAssign = new SmplAssign(Position, LeftText, RightValue, this->pManager);
 
 	pManager->AddStatement(pAssign);
 }
