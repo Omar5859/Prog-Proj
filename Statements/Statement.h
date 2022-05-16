@@ -2,9 +2,9 @@
 #define STATEMENT_H
 
 #include "..\defs.h"
-#include "Connector.h"
-//class Output;
 #include "..\GUI\Output.h"
+#include <utility>
+#include "..\GUI\Input.h"
 
 //Base class for all Statements
 class Statement
@@ -12,17 +12,32 @@ class Statement
 protected:
 	int ID;			//Each Statement has an ID
 	string Text;	//Statement text (e.g.  "X = 5" OR "if(salary > 3000)" and so on )
-	bool Selected;	//true if the statement is selected on the folwchart
+	bool Selected;	//true if the statement is selected on the flowchart
+	static int ID_counter; //ID counter for each statement created
+	Input* pIn;
 
+	int widthS;
+	int heightS;
+
+	Point CenterPoint;	//Center of the statement block.
+	pair<int, int> vStatX;
+	pair<int, int> vStatY;
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
 	/// Add more parameters if needed.
 
 public:
-	Statement();
+	Statement(Point P);
 	void SetSelected(bool s);
 	bool IsSelected() const;
+
+	void SetCenterPoint(Input* In);
+
+	int GetID();
+
+	pair<int, int> getvStatX();
+	pair<int, int> getvStatY();
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
 	
