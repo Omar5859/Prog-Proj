@@ -89,15 +89,13 @@ void ApplicationManager::AddStatement(Statement* pStat)
 {
 	for (int i = 0; i < StatCount; i++)
 	{
-		if ((pStat->getvStatX().first < ArrX[i].second && pStat->getvStatX().first > ArrX[i].first) || (pStat->getvStatY().first < ArrY[i].second && pStat->getvStatY().first > ArrY[i].first))
+		if ((pStat->getvStatX().first < ArrX[i].second && pStat->getvStatX().first > ArrX[i].first) || (pStat->getvStatX().second < ArrX[i].second && pStat->getvStatX().second > ArrX[i].first))
 		{
-			pOut->PrintMessage("Error! Overlapping statements");
-			return;
-		}
-		if ((pStat->getvStatX().second < ArrX[i].second && pStat->getvStatX().second > ArrX[i].first) || (pStat->getvStatY().second < ArrY[i].second && pStat->getvStatY().second > ArrY[i].first))
-		{
-			pOut->PrintMessage("Error! Overlapping statements");
-			return;
+			if ((pStat->getvStatY().first < ArrY[i].second && pStat->getvStatY().first > ArrY[i].first) || (pStat->getvStatY().second < ArrY[i].second && pStat->getvStatY().second > ArrY[i].first))
+			{
+				pOut->PrintMessage("Error! Overlapping statements");
+				return;
+			}
 		}
 	}
 	if (StatCount < MaxCount)
